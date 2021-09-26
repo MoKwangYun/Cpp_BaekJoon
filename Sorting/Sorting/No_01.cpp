@@ -1,5 +1,4 @@
 #include<iostream>
-#define _CRT_SECURE_NO_WARNINGS
 
 using namespace std;
 
@@ -7,19 +6,19 @@ int main() {
 	int N;
 	cin >> N;
 
-	int arr[1000] = {};
+	int* arr = new int[N] {};
 
 	for (int i = 0; i < N; i++) {
-		//scanf_s("%d", &arr[i]);
 
 		cin >> arr[i];
 
-		for (int j = i; j >= 0; j--) {
+		for (int j = i; j > 0; j--) {
 			if (arr[j - 1] > arr[j]) {
 				int temp = arr[j - 1];
 				arr[j - 1] = arr[j];
 				arr[j] = temp;
 			}
+			else break;
 		}
 	}
 
@@ -27,5 +26,9 @@ int main() {
 		printf("%d\n", arr[i]);
 	}
 
+	delete[] arr;
 	return 0;
 }
+
+
+
